@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   const fetchProducts = async () => {
-    const { data } = await axios.get('http://localhost:5000/api/products');
+    const { data } = await axios.get('https://test1-mot0.onrender.com/api/products');
     setProducts(data);
   };
 
@@ -29,7 +29,7 @@ function App() {
   // 1. Delete Product
   const handleDelete = async (id) => {
     if(window.confirm("Are you sure you want to delete this?")) {
-      await axios.delete(`http://localhost:5000/api/products/${id}`);
+      await axios.delete(`https://test1-mot0.onrender.com/api/products/${id}`);
       fetchProducts(); // Refresh list
     }
   };
@@ -52,11 +52,11 @@ function App() {
   const handleSubmit = async () => {
     if (view === 'admin-edit') {
       // UPDATE existing
-      await axios.put(`http://localhost:5000/api/products/${form.id}`, form);
+      await axios.put(`https://test1-mot0.onrender.com/api/products/${form.id}`, form);
       alert("Product Updated!");
     } else {
       // CREATE new
-      await axios.post('http://localhost:5000/api/products', form);
+      await axios.post('https://test1-mot0.onrender.com/api/products', form);
       alert("Product Added!");
     }
     setForm({ id: '', name: '', price: '', discount: 0, description: '', sizes: '', image: '' }); // Clear form
